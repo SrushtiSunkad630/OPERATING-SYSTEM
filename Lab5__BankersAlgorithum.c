@@ -116,5 +116,6 @@ Enter process number making the request (0 to 4): 1
 Enter request for process P1:
 1 0 2
 
+Request can be granted safely. No deadlock.
 
   
