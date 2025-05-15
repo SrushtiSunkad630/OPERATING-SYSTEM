@@ -27,7 +27,7 @@ int main() {
     for (int j = 0; j < m; j++)
         scanf("%d", &avail[j]);
 
-    // Calculate need matrix
+    
     for (int i = 0; i < n; i++)
         for (int j = 0; j < m; j++)
             need[i][j] = max[i][j] - alloc[i][j];
@@ -38,7 +38,6 @@ int main() {
     for (int j = 0; j < m; j++)
         scanf("%d", &request[j]);
 
-    // Check if request is valid
     int valid = 1;
     for (int j = 0; j < m; j++) {
         if (request[j] > need[pid][j] || request[j] > avail[j]) {
@@ -52,14 +51,12 @@ int main() {
         return 0;
     }
 
-    // Tentatively allocate
     for (int j = 0; j < m; j++) {
         avail[j] -= request[j];
         alloc[pid][j] += request[j];
         need[pid][j] -= request[j];
     }
 
-    // Safety check
     for (int i = 0; i < n; i++) finish[i] = 0;
     int work[MAX];
     for (int j = 0; j < m; j++) work[j] = avail[j];
